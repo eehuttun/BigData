@@ -11,7 +11,7 @@ docs <- tm_map(docs, removeNumbers)
 
 #Add language meta data to each of the documents in the Corpus
 languages=list.files(path = "1000")
-languages=gsub("*","",languages)
+languages=gsub("_.*","",languages)
 for (i in 1:length(docs)) {
   DublinCore(docs[[i]], "language") <- languages[i]
 }
